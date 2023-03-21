@@ -1,9 +1,8 @@
-# Melbourne Tours
 Group Members:\
 Yuchen Lin\
 Haolin Weng\
 Xinyi Yuan\
-Jiqiang Wang\
+Jiqiang Wang
 
 Please run our interface as follows to get a better experience:
 
