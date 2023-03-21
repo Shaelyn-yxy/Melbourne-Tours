@@ -1,0 +1,195 @@
+<style>
+
+body{
+    margin: 0
+    max-height: 500px
+}
+</style>
+
+
+<html>
+<head>
+<title>Title</title>
+</head>
+
+<body>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<figure class="highcharts-figure">
+  <div id="bubble1"></div>
+</figure>
+</body>
+</html>
+
+<script>
+// refer to https://www.highcharts.com/docs/chart-and-series-types/packed-bubble
+Highcharts.chart('bubble1', {
+  chart: {
+    type: 'packedbubble',
+    height: '500px'
+  },
+  title: {
+    text: 'Hot categories of Melbourne Restaurant'
+  },
+  tooltip: {
+    useHTML: true,
+    pointFormat: '<b>{point.name}:</b> {point.value} Restaurants'
+  },
+  colors: ['#f1c5ae', '#ecddd0', '#ced2c2', '#92b1b6', '#35455d','#bfd1df'],
+  plotOptions: {
+    packedbubble: {
+      minSize: '30%',
+      maxSize: '120%',
+      zMin: 0,
+      zMax: 1000,
+      layoutAlgorithm: {
+        splitSeries: false,
+        gravitationalConstant: 0.02
+      },
+      dataLabels: {
+        enabled: true,
+        format: '{point.name}',
+        filter: {
+          property: 'y',
+          operator: '>',
+          value: 100
+        },
+        style: {
+          color: 'black',
+          textOutline: 'none',
+          fontWeight: 'normal'
+        }
+      }
+    }
+  },
+  series: [{
+    name: 'Dessert&Cafe',
+    data: [{
+      name: 'Coffee & Tea',
+      value: 718
+    }, {
+      name: 'Backeries',
+      value: 281
+    },
+    {
+      name: "Cafes",
+      value: 80
+    },
+    {
+      name: "Ices-cream&Frozen Yogurt",
+      value: 37
+    },
+    {
+      name: "breakfast&Brunch",
+      value: 29
+    }]
+  }, {
+    name: 'Asian',
+    data: [{
+      name: "Chinese",
+      value: 358
+    },
+    {
+      name: "Japanese",
+      value: 247
+    },
+    {
+      name: "Thai",
+      value: 201
+    },
+    {
+      name: "Vietnamese",
+      value: 98
+    },
+    {
+      name: "Korean",
+      value: 107
+    },
+    {
+      name: "Sushi Bars",
+      value: 83
+    },
+    {
+      name: "Malaysian",
+      value: 35
+    },
+    {
+      name: "Ramen",
+      value: 20
+    }]
+  }, 
+  {
+    name: 'Bars',
+    data: [{
+      name: "Bars",
+      value: 405
+    },
+    {
+      name: "Wine Bars",
+      value: 97
+    },
+    {
+      name: "Pubs",
+      value: 52
+    }, {
+      name: "Cocktail Bars",
+      value: 42
+    }, {
+      name: "Dance Clubs",
+      value: 26
+    }, {
+      name: "Sports Bars",
+      value: 23
+    }, {
+      name: "Lounges",
+      value: 20
+    }]
+  }, {
+    name: 'Europe',
+    data: [{
+      name: "Italian",
+      value: 300
+    },
+    {
+      name: "Pizza",
+      value: 208
+    },
+    {
+      name: "French",
+      value: 49
+    },
+    {
+      name: "Greek",
+      value: 24
+    },
+    {
+      name: "Fish & Chips",
+      value: 21
+    }]
+  },
+  {
+    name: 'American',
+    data: [{
+      name: "Fast Food",
+      value: 160
+    },
+    {
+      name: "Burgers",
+      value: 153
+    },
+    {
+      name: "Steakhouses",
+      value: 33
+    }]
+  },
+  {name: 'Seafood/Mexican',
+    data: [{
+      name: "Seafood",
+      value: 61
+    },{
+      name: "Mexican",
+      value: 76
+    }]
+  }]
+});
+</script>

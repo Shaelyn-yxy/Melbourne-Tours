@@ -1,0 +1,567 @@
+<!-- 
+    Templete modify from the https://www.visitmelbourne.com/
+-->
+
+<style>
+    @charset "UTF-8";
+
+    a {
+        background-color: transparent
+    }
+
+    /*!normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css*/
+    body {
+        margin: 0
+    }
+
+    figcaption,
+    figure,
+    section {
+        display: block
+    }
+
+    a:active,
+    a:hover {
+        outline: 0
+    }
+
+    img {
+        border: 0
+    }
+
+    html {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: rgba(23, 26, 34, .5);
+        font-size: 16px
+    }
+
+    *,
+    ::after,
+    ::before {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit
+    }
+
+    html {
+        font-family: roboto-regular, helvetica neue, Helvetica, Arial, sans-serif
+    }
+
+    a,
+    body,
+    div {
+        font-family: roboto-regular, helvetica neue, Helvetica, Arial, sans-serif;
+        font-size: 1rem;
+        line-height: 1.5rem
+    }
+
+    body {
+        color: #3f3f3f
+    }
+
+    @media only screen and (min-width:40em) {
+
+        a,
+        body,
+        div {
+            font-size: 1rem;
+            line-height: 1.5rem
+        }
+    }
+
+    @media print {
+        body {
+            font-size: .875rem;
+            line-height: 1.25rem
+        }
+    }
+
+    body :focus {
+        outline-color: #00abf0
+    }
+
+    figure {
+        position: relative
+    }
+
+    figure a {
+        -webkit-transition: opacity .3s;
+        transition: opacity .3s
+    }
+
+    figure a:focus img,
+    figure a:hover img {
+        opacity: .7
+    }
+
+    figure img {
+        display: block;
+        width: 100%;
+        margin: 0 auto
+    }
+
+    @media screen {
+        figure figcaption {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            padding: 10px 16px;
+            background: rgba(0, 0, 0, .85);
+            color: #fff;
+            margin-bottom: 0;
+            max-width: calc(100% - 20px)
+        }
+    }
+
+    @media print {
+        figure {
+            margin: 10px 0
+        }
+
+        figure figcaption {
+            margin-top: 10px
+        }
+    }
+
+    figure figcaption .title {
+        font-family: roboto-medium, helvetica neue, Helvetica, Arial, sans-serif;
+        font-weight: 500;
+        margin-bottom: 0;
+        font-size:18px
+    }
+
+    figure figcaption .text {
+        margin-top: 15px;
+        color: #fff;
+        font-size: 14px
+    }
+
+    a {
+        color: #3f3f3f;
+        -webkit-transition-duration: .1s;
+        transition-duration: .1s;
+        -webkit-transition-property: color, background-color, border-color;
+        transition-property: color, background-color, border-color;
+        font-weight: 500
+    }
+
+    a:focus,
+    a:hover {
+        color: #171a22
+    }
+
+    a:active {
+        color: #020304
+    }
+
+    /*!* Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
+* License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)*/
+    @font-face {
+        font-family: FontAwesome;
+        src: url(../fonts/fontawesome-webfont.eot?v=4.7.0);
+        src: url(../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0) format("embedded-opentype"), url(../fonts/fontawesome-webfont.woff2?v=4.7.0) format("woff2"), url(../fonts/fontawesome-webfont.woff?v=4.7.0) format("woff"), url(../fonts/fontawesome-webfont.ttf?v=4.7.0) format("truetype"), url(../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular) format("svg");
+        font-weight: 400;
+        font-style: normal
+    }
+
+    @font-face {
+        font-family: roboto-regular;
+        src: url(../fonts/roboto-regular/roboto-regular-webfont.woff2) format("woff2"), url(../fonts/roboto-regular/roboto-regular-webfont.woff) format("woff"), url(../fonts/roboto-regular/roboto-regular-webfont.ttf) format("truetype");
+        font-display: fallback
+    }
+
+    @font-face {
+        font-family: roboto-medium;
+        src: url(../fonts/roboto-medium/roboto-medium-webfont.woff2) format("woff2"), url(../fonts/roboto-medium/roboto-medium-webfont.woff) format("woff"), url(../fonts/roboto-medium/roboto-medium-webfont.ttf) format("truetype");
+        font-display: fallback
+    }
+
+    @font-face {
+        font-family: roboto-bold;
+        src: url(../fonts/roboto-bold/roboto-bold-webfont.woff2) format("woff2"), url(../fonts/roboto-bold/roboto-bold-webfont.woff) format("woff"), url(../fonts/roboto-bold/roboto-bold-webfont.ttf) format("truetype");
+        font-display: fallback
+    }
+
+    @font-face {
+        font-family: librebaskerville-regular;
+        src: url(../fonts/librebaskerville-regular/librebaskerville-regular-webfont.woff2) format("woff2"), url(../fonts/librebaskerville-regular/librebaskerville-regular-webfont.woff) format("woff"), url(../fonts/librebaskerville-regular/librebaskerville-regular-webfont.ttf) format("truetype");
+        font-display: fallback
+    }
+
+    @font-face {
+        font-family: librebaskerville-italic;
+        src: url(../fonts/librebaskerville-italic/librebaskerville-italic-webfont.woff2) format("woff2"), url(../fonts/librebaskerville-italic/librebaskerville-italic-webfont.woff) format("woff"), url(../fonts/librebaskerville-italic/librebaskerville-italic-webfont.ttf) format("truetype");
+        font-display: fallback
+    }
+
+    img[data-src] {
+        opacity: .1;
+        text-indent: -9999px
+    }
+
+    img.is-lazy-loaded {
+        opacity: 1;
+        text-indent: 0
+    }
+
+    img {
+        -webkit-transition: opacity 250ms;
+        transition: opacity 250ms
+    }
+
+    .cm {
+        margin: 35px 0
+    }
+
+    .cm:first-child {
+        margin-top: 0
+    }
+
+    .cm:last-child {
+        margin-bottom: 0
+    }
+
+    @media screen {
+        .cm-image figure {
+            margin: 0;
+            position: relative
+        }
+
+        .cm-image.is-showcase figcaption {
+            background: rgba(255, 255, 255, .85);
+            color: #3f3f3f;
+            -webkit-transition: width .1s, height .1s;
+            transition: width .1s, height .1s
+        }
+
+        .cm-image.is-showcase figcaption .text {
+            color: inherit;
+            display: none
+        }
+
+        html:not(.d-touch) .cm-image.is-showcase a:focus figcaption,
+        html:not(.d-touch) .cm-image.is-showcase a:hover figcaption {
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            top: 10px;
+            padding: 5%
+        }
+
+        html:not(.d-touch) .cm-image.is-showcase a:focus figcaption .text,
+        html:not(.d-touch) .cm-image.is-showcase a:hover figcaption .text {
+            display: block;
+            margin-top: 5px
+        }
+    }
+
+    @supports(-ms-ime-align:auto) {}
+
+    .masonry-grid-items {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap
+    }
+
+    .masonry-grid-items .masonry-grid-item {
+        width: 50%
+    }
+
+    @media only screen and (min-width:48em) {
+        .masonry-grid-items {
+            display: grid;
+            display: -ms-grid;
+            margin: -7px 0
+        }
+
+        .masonry-grid-items.summary-items-grid {
+            margin-bottom: 0;
+            margin-right: -10px
+        }
+
+        .masonry-grid-items .masonry-grid-item {
+            margin-right: 10px;
+            margin-bottom: 10px
+        }
+
+        .masonry-grid-items.has-10-items {
+            -ms-grid-columns: 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr
+        }
+
+        .masonry-grid-items.has-10-items .masonry-grid-item:nth-child(1) {
+            grid-column: 1/2;
+            -ms-grid-row: 1
+        }
+
+        .masonry-grid-items.has-10-items .masonry-grid-item:nth-child(2) {
+            grid-column: 2/3;
+            -ms-grid-column: 2;
+            -ms-grid-row: 1
+        }
+
+        .masonry-grid-items.has-10-items .masonry-grid-item:nth-child(3) {
+            grid-column: 3/5;
+            grid-row: 1/3;
+            -ms-grid-column: 3;
+            -ms-grid-column-span: 2;
+            -ms-grid-row: 1;
+            -ms-grid-row-span: 2
+        }
+
+        .masonry-grid-items.has-10-items .masonry-grid-item:nth-child(4) {
+            grid-column: 1/3;
+            grid-row: 2/4;
+            -ms-grid-column: 1;
+            -ms-grid-column-span: 2;
+            -ms-grid-row: 2;
+            -ms-grid-row-span: 2
+        }
+
+        .masonry-grid-items.has-10-items .masonry-grid-item:nth-child(5) {
+            grid-column: 3/4;
+            -ms-grid-column: 3;
+            -ms-grid-row: 3
+        }
+
+        .masonry-grid-items.has-10-items .masonry-grid-item:nth-child(6) {
+            grid-column: 4/5;
+            -ms-grid-column: 4;
+            -ms-grid-row: 3
+        }
+
+        .masonry-grid-items.has-10-items .masonry-grid-item:nth-child(7) {
+            grid-column: 1/2;
+            -ms-grid-column: 1;
+            -ms-grid-column-span: 1;
+            -ms-grid-row: 4
+        }
+
+        .masonry-grid-items.has-10-items .masonry-grid-item:nth-child(8) {
+            grid-column: 2/3;
+            -ms-grid-column: 2;
+            -ms-grid-column-span: 1;
+            -ms-grid-row: 4
+        }
+
+        .masonry-grid-items.has-10-items .masonry-grid-item:nth-child(9) {
+            grid-column: 3/4;
+            -ms-grid-column: 3;
+            -ms-grid-column-span: 1;
+            -ms-grid-row: 4
+        }
+
+        .masonry-grid-items.has-10-items .masonry-grid-item:nth-child(10) {
+            grid-column: 4/5;
+            -ms-grid-column: 4;
+            -ms-grid-column-span: 1;
+            -ms-grid-row: 4
+        }
+    }
+
+    figure {
+        margin: 0
+    }
+
+    .summary-items-grid {
+        margin: 0 -7px
+    }
+
+    .summary-items-grid:last-of-type {
+        margin: 0 -7px 10px
+    }
+
+    .summary-items-grid .summary-item {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 7px 0
+    }
+
+    .summary-items-grid .summary-item .cm {
+        margin-bottom: 0
+    }
+
+    @media only screen and (min-width:40em) {
+        .summary-items-grid .summary-item {
+            padding: 7px
+        }
+    }
+
+    @media print {
+        .summary-items-grid .summary-item {
+            padding: 7px
+        }
+    }
+
+    .summary-items-grid .summary-item .cm-image.is-showcase figcaption {
+        background: rgba(0, 0, 0, .6);
+        width: 100%;
+        max-width: 100%;
+        left: 0;
+        bottom: 0;
+        color: #fff;
+        padding: 8px 16px
+    }
+
+    html:not(.d-touch) .summary-items-grid .summary-item .cm-image.is-showcase a:focus figcaption,
+    html:not(.d-touch) .summary-items-grid .summary-item .cm-image.is-showcase a:hover figcaption {
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        padding: 16px
+    }
+
+    .summary-items-grid.masonry-grid-items {
+        margin: 0 -7px 10px
+    }
+
+    .summary-items-grid.masonry-grid-items .summary-item {
+        padding: 7px
+    }
+
+    @media print {
+        .summary-items-grid.masonry-grid-items .summary-item {
+            width: 33.33%
+        }
+    }
+
+    @media only screen and (min-width:48em) {
+        .summary-items-grid.masonry-grid-items {
+            margin: 0 0 10px
+        }
+
+        .summary-items-grid.masonry-grid-items .summary-item {
+            width: auto;
+            padding: 0
+        }
+    }
+
+    @media print {
+
+        img {
+            page-break-inside: avoid
+        }
+
+        * {
+            background: 0 0 !important;
+            color: #000 !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            text-shadow: none !important
+        }
+
+        a,
+
+
+        .cm-image a {
+            text-decoration: none
+        }
+
+        a[href]:after {
+            font-family: roboto-regular, helvetica neue, Helvetica, Arial, sans-serif;
+            content: " (" attr(href) ")";
+            word-wrap: break-word
+        }
+
+        img {
+            max-width: 100% !important
+        }
+    }
+</style>
+
+
+
+
+<div class="summary-items-grid masonry-grid-items has-10-items">
+    <div class="summary-item is-type-content masonry-grid-item">
+        <section class="cm cm-image is-showcase">
+            <figure class="is-full"><a
+                    href="https://www.ptv.vic.gov.au/"><img
+                         src="./transport.jpg">
+                    <figcaption>
+                        <div class="title">Transport</div>
+                        <div class="text">Transport in Melbourne, the state capital of Victoria, Australia, consists of several interlinking modes. Melbourne is a hub for intercity, intracity and regional travel. </div>
+                    </figcaption>
+                    <!---->
+                </a></figure>
+        </section>
+        <!---->
+        <!---->
+    </div>
+    <div class="summary-item is-type-content masonry-grid-item">
+        <section class="cm cm-image is-showcase">
+            <figure class="is-full"><a href="https://en.wikipedia.org/wiki/The_Twelve_Apostles_(Victoria)#:~:text=The%20Twelve%20Apostles%20is%20a,Ocean%20Road%20in%20Victoria%2C%20Australia."><img
+                        src="./landscape.jpg">
+                    <figcaption>
+                        <div class="title">Landscape</div>
+                        <div class="text">The Twelve Apostles is a collection of limestone stacks off the shore of Port Campbell National Park, by the Great Ocean Road in Victoria, Australia.</div>
+                    </figcaption>
+                    <!---->
+                </a></figure>
+        </section>
+        <!---->
+        <!---->
+    </div>
+    <div class="summary-item is-type-content masonry-grid-item">
+        <section class="cm cm-image is-showcase">
+            <figure class="is-full"><a href="https://en.wikipedia.org/wiki/Melbourne"><img
+                        src="./project.jpg">
+                    <figcaption>
+                        <div class="title">Project information</div>
+                        <div class="text">This project aims to use data visualization techniques to provide information about attractions, transport, restaurants, housing in Melbourne to tourists who want to visit Melbourne</div>
+                    </figcaption>
+                    <!---->
+                </a></figure>
+        </section>
+        <!---->
+        <!---->
+    </div>
+    <div class="summary-item is-type-content masonry-grid-item">
+        <section class="cm cm-image is-showcase">
+            <figure class="is-full"><a href="https://en.wikipedia.org/wiki/Melbourne"><img
+                        src="./welcome.jpg">
+                    <figcaption>
+                        <div class="title">Welcome to Melbourne</div>
+                        <div class="text">Melbourne is the coastal capital of the southeastern Australian state of Victoria. At the city's centre is the modern Federation Square development, with plazas, bars, and restaurants by the Yarra River. In the Southbank area, the Melbourne Arts Precinct is the site of Arts Centre Melbourne – a performing arts complex – and the National Gallery of Victoria, with Australian and indigenous art.</div>
+                    </figcaption>
+                    <!---->
+                </a></figure>
+        </section>
+        <!---->
+        <!---->
+    </div>
+    <div class="summary-item is-type-content masonry-grid-item">
+        <section class="cm cm-image is-showcase">
+            <figure class="is-full"><a href="https://www.airbnb.com/"><img
+                          src="./hotel.jpg">
+                    <figcaption>
+                        <div class="title">Hotels</div>
+                        <div class="text">An essential part of travel is accommodation. An excellent accommodation experience can improve overall travel happiness.</div>
+                    </figcaption>
+                    <!---->
+                </a></figure>
+        </section>
+        <!---->
+        <!---->
+    </div>
+    <div class="summary-item is-type-content masonry-grid-item">
+        <section class="cm cm-image is-showcase">
+            <figure class="is-full"><a href="https://www.google.com/search?tbs=lf:1,lf_ui:9&tbm=lcl&q=melbourne+restaurants&rflfq=1&num=10&sa=X&ved=2ahUKEwjEutmI2-b6AhWVCN4KHX4EAaEQjGp6BAgYEAE&biw=1024&bih=1006&dpr=1.25#rlfi=hd:;si:;mv:[[-37.8100046,144.97365259999998],[-37.8165392,144.9505174]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u5!2m2!5m1!1sgcid_3italian_1restaurant!1m4!1u5!2m2!5m1!1sgcid_3asian_1fusion_1restaurant!1m4!1u2!2m2!2m1!1e1!1m4!1u1!2m2!1m1!1e1!1m4!1u1!2m2!1m1!1e2!2m1!1e2!2m1!1e5!2m1!1e1!2m1!1e3!3sIAEqAkFV,lf:1,lf_ui:9"><img
+                        src="./food.jpg">
+                    <figcaption>
+                        <div class="title">Restaurant</div>
+                        <div class="text">Great restaurants can bring pleasure to people</div>
+                    </figcaption>
+                    <!---->
+                </a></figure>
+        </section>
+        <!---->
+        <!---->
+    </div>
+ 
+</div>
+</div>

@@ -1,0 +1,98 @@
+<html>
+  <head>
+    <body>
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+      <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+      <script src="https://code.highcharts.com/modules/treemap.js"></script>
+      <!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
+      <!-- <script src="https://code.highcharts.com/modules/export-data.js"></script> -->
+      <!-- <script src="https://code.highcharts.com/modules/accessibility.js"></script> -->
+      
+      <figure class="highcharts-figure">
+        <div id="container2"></div>
+      <!-- </figure> -->
+    </body>
+  </head>
+</html>
+
+<script>
+// this graph is modified from https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/demo/treemap-coloraxis
+  Highcharts.chart('container2', {
+    colorAxis: {
+        maxColor: "#0043AE"
+    },
+    plotOptions:{
+    	series: {
+      cursor:'pointer',
+      point:{
+      	events:{
+        	click:function(e) {
+          	window.open(e.point.url)
+          }
+        }
+      }
+      }
+    },
+    series: [{
+        type: 'treemap',
+        layoutAlgorithm: 'squarified',
+        data: [{
+            name: 'CBD Shopping',
+            value: 10,
+            colorValue: 10,
+            url: "https://www.tripadvisor.com.au/Attraction_Review-g255100-d7274760-Reviews-Emporium_Melbourne-Melbourne_Victoria.html"
+        }, {
+            name: 'Federation Square',
+            value: 6,
+            colorValue: 6,
+            url: "https://www.tripadvisor.com.au/Attraction_Review-g255100-d266090-Reviews-Federation_Square-Melbourne_Victoria.html"
+        }, {
+            name: 'Southbank Promenade',
+            value: 5.5,
+            colorValue: 5.5,
+            url: "https://www.tripadvisor.com.au/Attraction_Review-g255100-d526956-Reviews-Southbank-Melbourne_Victoria.html"
+        }, {
+            name: 'Queen Victoria Market',
+            value: 5.2,
+            colorValue: 5.2,
+            url: "https://www.tripadvisor.com.au/Attraction_Review-g255100-d256569-Reviews-Queen_Victoria_Market-Melbourne_Victoria.html"
+        }, {
+            name: 'Crown Entertainment Complex',
+            value: 4.8,
+            colorValue: 4.8,
+            url: "https://www.tripadvisor.com.au/Attraction_Review-g255100-d258045-Reviews-Crown_Casino-Melbourne_Victoria.html"
+        }, {
+            name: 'Docklands & Docklands Stadium',
+            value: 4,
+            colorValue: 4,
+            url: "https://www.tripadvisor.com.au/Attraction_Review-g255100-d1048151-Reviews-Docklands_Stadium-Melbourne_Victoria.html"
+        }, {
+            name: 'St Kilda',
+            value: 3.8,
+            colorValue: 3.8,
+            url:"https://www.tripadvisor.com.au/Hotel_Review-g255100-d15764212-Reviews-Quest_St_Kilda_Road-Melbourne_Victoria.html"
+        }, {
+            name: 'National Gallery of Victoria (NGV)',
+            value: 3.8,
+            colorValue: 3.8,
+            url:"https://www.tripadvisor.com.au/Attraction_Review-g255100-d256558-Reviews-National_Gallery_of_Victoria-Melbourne_Victoria.html"
+        }, {
+            name: 'Melbourne Museum, Royal Exhibition Building & Carlton Gardens',
+            value: 2,
+            colorValue: 2,
+            url:"https://www.tripadvisor.com.au/Attraction_Review-g255100-d501819-Reviews-Royal_Exhibition_Building-Melbourne_Victoria.html"
+        }, {
+            name: 'Melbourne Cricket Ground',
+            value: 1.9,
+            colorValue: 2,
+            url:"https://www.tripadvisor.com.au/Attraction_Review-g255100-d256584-Reviews-Melbourne_Cricket_Ground_MCG-Melbourne_Victoria.html"
+        }]
+    }],
+    title: {
+        text: "Top 10 attractions in Melbourne"
+    },
+    subtitle: {
+        text: 'Source: WorldAtlas.'
+    }
+});
+</script>

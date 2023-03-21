@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title</title>
+</head>
+<style>
+.controls {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto; 
+}
+
+button {
+    width: 40%;
+    margin: 0 auto;
+}
+
+container_wheel {
+  min-width: 310px;
+  max-width: 500px;
+  height: 500px;
+  margin: 0 auto;
+}
+
+</style>
+<body>
+<!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
+<figure class="wheel-figure">
+    <div id="container_wheel"></div>
+  <div class='controls'>
+    <br></br>
+    <button id="play">Click Me!</button>
+  </div>
+</figure>  
+</body>
+</html>
+
+
+<script>
+// the code refers to https://www.highcharts.com/blog/tutorials/animation-with-highcharts-to-create-a-lottery-wheel/
+    Highcharts.setOptions({
+    colors: ['#f1c5ae', '#ecddd0', '#ced2c2', '#92b1b6', '#35455d','#bfd1df']
+});
+
+let chart;
+window.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById('play');
+    let t; // animation
+    button.addEventListener('click', e => {
+        if (t) {
+            clearInterval(t);
+        }
+        button.disabled = true;
+        chart.setTitle( {
+            text:  'Wheel is Spinning...'
+        });
+
+        // degrees to spin for each iteration
+        let diff = 25 + Math.random() * 10,
+            startAngle = chart.series[0].options.startAngle;
+
+        const animationSpeed = 25;
+        t = setInterval(() => { // Animation loop  
+            
+            // Update angle and diff
+            startAngle += diff;
+            if (startAngle > 360) {
+                startAngle -= 360;
+            }
+            diff *= 0.98;
+            chart.series[0].update({ startAngle });
+            
+            // stop the wheel and get the winner
+            if (diff < 0.01) {
+                const winner = findWinner(chart.series[0].data);
+                chart.setTitle({
+                    text:  chart.series[0].data[winner].name + '!'
+                });
+                clearInterval(t);
+                button.disabled = false;
+            }
+        }, animationSpeed);
+    });
+    // Create the chart
+    let triangle;
+    chart = Highcharts.chart('container_wheel', {
+
+        chart: {
+            animation: false,
+            marginTop: 100,
+            events: {
+                resize: function () {   
+                    triangle.destroy(); // Prevent arrow misplacement
+                    triangle = chart.renderer.path([
+                        ['M', chart.chartWidth / 2 - 10, chart.plotTop - 5],
+                        ['L', chart.chartWidth / 2 + 10, chart.plotTop - 5],
+                        ['L', chart.chartWidth / 2, chart.plotTop + 10],
+                        ['Z']
+                    ])
+                    .attr({
+                        fill: 'black'
+                    })
+                    .add();
+                }  
+            }
+        },
+
+        title: {
+            text: 'What to Eat Today?'
+        },
+        series: [{
+            type: 'pie',
+            size: '100%',
+            dataLabels: {
+                distance: -15
+            },
+            data: [
+              ['Desserts & Cafes', 1],
+              ['Asian Food', 1],
+              ['Bars', 1],
+              ['Europe Food', 1],
+              ['American Food', 1],
+              ['Mexican Food/SeaFood', 1]
+            ],
+            startAngle: 360 * Math.random()
+        }]
+
+    });
+    // Create the arrow at the top.
+    triangle = chart.renderer.path([
+            ['M', chart.chartWidth / 2 - 10, chart.plotTop - 5],
+            ['L', chart.chartWidth / 2 + 10, chart.plotTop - 5],
+            ['L', chart.chartWidth / 2, chart.plotTop + 10],
+            ['Z']
+        ])
+        .attr({
+            fill: 'black'
+        })
+        .add();
+});
+
+const radToDeg = r => r * 180 / Math.PI;
+// show output
+const findWinner = (data) => {
+    const sliceSize = 360 / data.length;
+    const winThreshold = 360 - sliceSize;
+    let sliceBeginning; // This marks the beginning of a slice.
+
+    for (let i in data) {
+        sliceBeginning = radToDeg(data[i].shapeArgs.start) + 90;
+        if (sliceBeginning > 360) {
+            sliceBeginning -= 360;
+        }
+        if (sliceBeginning > winThreshold) {
+            return i;
+        }
+    }
+    return -1;
+}
+</script>

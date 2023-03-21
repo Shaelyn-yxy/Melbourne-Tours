@@ -1,0 +1,150 @@
+<html>
+  <head>
+    <body>
+<!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
+        <script src="https://code.highcharts.com/modules/pattern-fill.js"></script>
+        <!-- <script src="https://code.highcharts.com/themes/high-contrast-light.js"></script>
+         -->
+      <div id="chart-wrap">
+
+
+        <figure class="highcharts-figure">
+          <div id="container1"></div>
+        </figure>
+      </div>
+    </body>
+  </head>
+</html>
+
+<script>
+
+// this graph is modified from https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/demo/accessible-pie
+
+var clrs2 = Highcharts.getOptions().colors;
+var pieColors2 = [clrs2[2], clrs2[0], clrs2[3], clrs2[1], clrs2[4]];
+
+// Get a default pattern, but using the pieColors above.
+// The i-argument refers to which default pattern to use
+function getPattern(i) {
+    return {
+        pattern: Highcharts.merge(Highcharts.patterns[i], {
+            color: pieColors2[i]
+        })
+    };
+}
+
+// Get 5 patterns
+var patterns2 = [0, 1, 2, 3, 4,5,6,7,8,9,10].map(getPattern);
+
+var chart_pt = Highcharts.chart('container1', {
+    chart: {
+        type: 'pie'
+    },
+
+    title: {
+        text: '10 popular things to do in Melbourne'
+    },
+
+    subtitle: {
+        text: 'Source: tripadvisor.'
+    },
+
+    colors: patterns2,
+
+    tooltip: {
+        valueSuffix: '%',
+        borderColor: '#8ae'
+    },
+
+    plotOptions: {
+        series: {
+            dataLabels: {
+                enabled: true,
+                connectorColor: '#777',
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+            },
+            point: {
+                events: {
+                    click: function (e) {
+                        window.open(e.point.website);
+                    }
+                }
+            },
+            cursor: 'pointer',
+            borderWidth: 3
+        }
+    },
+
+    series: [{
+        name: 'Screen reader usage',
+        data: [{
+            name: 'City Tours',
+            y: 20.1,
+            website: 'https://www.tripadvisor.com/Attractions-g255100-Activities-c42-t224-Melbourne_Victoria.html',
+            accessibility: {
+                description: 'This is the most used desktop screen reader'
+            }
+        }, {
+            name: 'Shopping Mall',
+            y: 21.6,
+            website: 'https://www.tripadvisor.com/Attractions-g255100-Activities-c26-t143-Melbourne_Victoria.html'
+        }, {
+            name: 'Private Day Trips',
+            y: 10.9,
+            website: 'https://www.tripadvisor.com/Attraction_Products-g255100-t11918-zfg11867-Melbourne_Victoria.html'
+        }, {
+            name: 'Parks',
+            y: 12,
+            website: 'https://www.tripadvisor.com/Attractions-g255100-Activities-c57-t70-Melbourne_Victoria.html'
+        }, {
+            name: 'Historic Sites',
+            y: 7.4,
+            website: 'https://www.tripadvisor.com/Attractions-g255100-Activities-c47-t17-Melbourne_Victoria.html'
+        },{
+            name: 'Wine Tasting',
+            y: 14.4,
+            website: 'https://www.tripadvisor.com/Attractions-g255100-Activities-c42-t205-Melbourne_Victoria.html'
+        },{
+            name: 'Historic Sites',
+            y: 6.4,
+            website: 'https://www.tripadvisor.com/Attractions-g255100-Activities-c61-t220-Melbourne_Victoria.html'
+        },{
+            name: 'Nature and Wildlife Tours',
+            y: 14,
+            website: 'https://www.tripadvisor.com/Attractions-g255100-Activities-c47-t17-Melbourne_Victoria.html'
+        },{
+            name: 'Night Tours',
+            y: 17.4,
+            website: 'https://www.tripadvisor.com/Attractions-g255100-Activities-c42-t233-Melbourne_Victoria.html'
+        },{
+            name: 'Weddings & Honeymoons',
+            y: 19.4,
+            website: 'https://www.tripadvisor.com/Attraction_Products-g255100-zfg11877-Melbourne_Victoria.html'
+        }]
+    }],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                plotOptions: {
+                    series: {
+                        dataLabels: {
+                            format: '<b>{point.name}</b>'
+                        }
+                    }
+                }
+            }
+        }]
+    }
+});
+
+// Toggle patterns enabled
+document.getElementById('patterns-enabled2').onclick = function () {
+    chart_pt.update({
+        colors: this.checked ? patterns : pieColors2
+    });
+};
+</script>
