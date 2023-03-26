@@ -1,11 +1,15 @@
 # Melbourne Tours
 
-Group Members:\
-Yuchen Lin\
-Haolin Weng\
-Xinyi Yuan\
-Jiqiang Wang
+## Group Members
+|Student Name|
+|:---------------:|
+|Yuchen Lin|
+|Haolin Weng|
+|Xinyi Yuan|
+|Jiqiang Wang|
 
+
+## Readme
 Please run our interface as follows to get a better experience:
 
 1. Open RStudio
